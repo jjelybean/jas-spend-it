@@ -13,6 +13,19 @@
 
 }
 
+.formText {
+  text-align: center;
+}
+
+.formText h2{
+  font-family: silkscreen;
+  color: #F0BB78;
+  padding-top: 50px;
+  font-size: 50px;
+  margin-bottom: 10px;
+
+}
+
 
 .introText p{
   font-family: space-mono;

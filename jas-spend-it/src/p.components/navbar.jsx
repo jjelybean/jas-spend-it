@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./navbar.css"
+import { Link } from 'react-router-dom';
 
 
 function Navbar () {
@@ -13,19 +14,26 @@ function Navbar () {
                     Jas Spend It
                     </a>
 
-                    <div className="navbar-collapse" id="navbarNavDropdown">
-                        <ul className="navbar-nav">
+                    {/* options */}
+                     <div className="d-flex ms-auto" id="navbarNavDropdown">
+                        
+                        <ul className="nav justify-content-end">
                             <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">About</a>
-                            </li>
+                                <Link to="/about" className="nav-link active" aria-current="page">
+                                About
+                                </Link>
+                            </li> 
                             <li className="nav-item">
-                            <a className="nav-link" href="#">Sign up</a>
-                            </li>
-
-                            <button className="btn btn-outline-success" type="submit">Sign In</button>
+                                <Link to="/sign-up" className="nav-link active" aria-current="page">
+                                Sign up
+                                </Link>
+                            </li> 
 
                         </ul>
-                    </div>
+
+                        <button type="button" className="btn btn-outline-success">Sign In</button>
+                     </div>
+
                         
                 </div>
                 </nav>
@@ -36,3 +44,4 @@ function Navbar () {
 }
 
 export default Navbar;
+
