@@ -13,6 +13,7 @@
     "@fontsource/sarina": "^5.2.5",
     "@fontsource/silkscreen": "^5.2.5",
     "@fontsource/space-mono": "^5.2.5",
+    "@supabase/supabase-js": "^2.49.8",
     "bootstrap": "^5.3.6",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",

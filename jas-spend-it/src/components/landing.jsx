@@ -1,7 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "../App.css"
+import supabase from "../supabaseClient.js"
 
 function Landing(){
+
+    console.log(supabase)
 
     return(
         <div className='body'>
