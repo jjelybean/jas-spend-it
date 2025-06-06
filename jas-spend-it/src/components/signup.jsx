@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "../styles/forms.css"
 import supabase from '../supabaseClient';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function Signup() {
+
+  const navigate = useNavigate ();
 
      const [formData, setFormData]= useState ({
         first_name:"",
@@ -37,6 +40,8 @@ export default function Signup() {
       setStatus("Signup successful!");
       setFormData({ first_name: "", last_name: "", email: "", password: "" });
     }
+
+     navigate('/dashboard'); 
   }
 
 

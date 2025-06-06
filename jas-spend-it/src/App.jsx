@@ -10,6 +10,7 @@ import Landing from './components/landing'
 import Signup from './components/signup'
 import About from './components/about'
 import Sign_in from './components/sign_in'
+import Dashboard from './components/dashboard'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
          <Route path='/sign-up' element={<Signup/>}></Route>
          <Route path='/about' element={<About/>}></Route>
          <Route path='/sign-in' element={<Sign-in/>}></Route>
+         <Route path='/dashboard' element={<Dashboard/>}></Route>
       </Routes>
     </Router>
     
