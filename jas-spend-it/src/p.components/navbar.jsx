@@ -31,7 +31,12 @@ function Navbar () {
 
                         </ul>
 
-                        <button type="button" className="btn btn-outline-success">Sign In</button>
+                        <button type="button" className="btn btn-outline-success">
+                            <Link to="/sign-in">
+                            Sign In
+                            </Link>
+                        </button>
+                        
                      </div>
 
                         
