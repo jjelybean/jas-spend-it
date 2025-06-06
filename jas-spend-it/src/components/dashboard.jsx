@@ -16,10 +16,10 @@ function Dashboard() {
   return (
     <div>
 
-      <h1>Welcome to the Home Page</h1>
+      <h1>Welcome to Jas spend it</h1>
 
       {showPopup && (
-        <Popup message="You have been redirected here!" onClose={handleClose} />
+        <Popup message="Let's get started" onClose={handleClose} />
       )}
 
     </div>

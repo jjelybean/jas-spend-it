@@ -2,46 +2,72 @@ import React, { useState, useEffect } from 'react'
 import "../styles/forms.css"
 import supabase from '../supabaseClient';
 import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 
 export default function Signup() {
 
-  const navigate = useNavigate ();
+  const navigate = useNavigate();
+  const [status, setStatus] = useState("");
 
-     const [formData, setFormData]= useState ({
-        first_name:"",
-        last_name:"",
-        email:"",
-        password:""
-
-    });
-
-     const [status, setStatus] = useState("");
+    const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: ''
+  });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+        setFormData({
+          ...formData,
+          [e.target.name]: e.target.value
+        });
   };
 
-    const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("Submitting...");
-
-    const { data, error } = await supabase.from("users").insert([formData]);
+  const handleSubmit = async (e) => {
+     e.preventDefault();
+   //supabase auth na table
+    const { data, error } = await supabase.auth.signUp({
+      email: formData.email,
+      password: formData.password,
+      options: {
+        data: {
+          first_name: formData.first_name,
+          last_name: formData.last_name,
+        }
+      }
+    });
 
     if (error) {
-      console.error("Insert error:", error);
-      setStatus("Error submitting form.");
-    } else {
-      console.log("User inserted:", data);
-      setStatus("Signup successful!");
-      setFormData({ first_name: "", last_name: "", email: "", password: "" });
+      console.error("Sign-up error:", error.message);
+      setStatus("Signup failed: " + error.message);
+      return; 
     }
 
-     navigate('/dashboard'); 
+    if (!data.user) {
+    setStatus("Signup failed: No user returned.");
+    return;
+  }
+  
+    // to link auth to users table using userID
+
+  const userId = data.user.id;
+
+  const { error: insertError } = await supabase.from("users").insert([
+    {
+      user_id: userId, 
+      first_name: formData.first_name,
+      last_name: formData.last_name,
+    }
+  ]);
+
+   if (insertError) {
+    console.error("User table insert error:", insertError.message);
+    setStatus("Signup failed");
+    return;
+  }    
+      navigate("/dashboard");
+
   }
 
 
@@ -57,7 +83,7 @@ export default function Signup() {
     <div className="container border border-success rounded p-3 border-3 custom-border">
 
         <div className="mb-3">
-            <label htmlFor="exampleFormControlInput1" className="form-label">First Name</label>
+            <label htmlFor="first_name" className="form-label">First Name</label>
             <input
             name="first_name"
             type="text"
@@ -70,7 +96,7 @@ export default function Signup() {
         </div>
 
          <div className="mb-3">
-            <label htmlFor="exampleFormControlInput1" className="form-label">Last Name</label>
+            <label htmlFor="last_name" className="form-label">Last Name</label>
             <input
             name="last_name"
             type="text"
@@ -82,7 +108,7 @@ export default function Signup() {
         </div>
 
         <div className="mb-3">
-            <label htmlFor="exampleFormControlInput1" className="form-label">Email Address</label>
+            <label htmlFor="email" className="form-label">Email Address</label>
             <input
             name="email"
             type="email"
@@ -95,7 +121,7 @@ export default function Signup() {
         </div>
 
         <div className="mb-3">
-            <label htmlFor="exampleFormControlInput1" className="form-label">Passsword</label>
+            <label htmlFor="password" className="form-label">Password</label>
             <input
             name="password"
             type="password"
@@ -113,7 +139,10 @@ export default function Signup() {
 
   </form> {/* heheh */}
 
-    <p>already have an account?Sign in</p>
+    <p>already have an account?
+      <Link to="/sign-in" >Sign in
+      </Link>
+    </p>
     </div>
   )
 
