@@ -48,24 +48,56 @@ useEffect(() => {
         <Popup message="Let's get started" onClose={handleClose} />
       )}
 
-        <div className='card'>
-          <div className="card-header">
-            Featured
-          </div>
-          <div className='card-body options-container'>
-            <div className='row'>
-                <div className="d-flex gap-5">
-                  <button type="button" className="btn btn-outline-primary button-style  w-25 p-3 fs-4">
-                      Left</button>
-                  <button type="button" className="btn btn-outline-primary button-style w-25 p-3 fs-4">
-                    Middle</button>
-                  <button type="button" className="btn btn-outline-primary button-style w-25 p-3 fs-4">
-                    Right</button>
-                </div>  
-            </div> {/*row */}
-          </div>
+          
+          <h2>  Featured </h2>
+        
+      <div className='container'>
+        <div className="row">
+              <div className="col-md-4">
+       {/* to make the whole thing a button */}   
+          <div 
+            className="card" 
+            style={{ cursor: 'pointer' }} 
+            onClick={() => navigate('/new-expense')}
+          ></div>
+          {/* CARD */}
+                <div className="card">
+                  <div className="card-body pb-0">
+                    <div className="h1 fw-bold float-end text-primary">+5%</div>
+                    <h2 className="mb-2">Log</h2>
+                    <p className="text-muted">Set budget. spend wisely</p>
+                    <div className="pull-in sparkline-fix">
+                      <div id="lineChart"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-4">
+                <div className="card">
+                  <div className="card-body pb-0">
+                    <div className="h1 fw-bold float-end text-danger">-3%</div>
+                    <h2 className="mb-2">Start a new goal!</h2>
+                    <p className="text-muted">Okay. I promise i'll start saving</p>
+                    <div className="pull-in sparkline-fix">
+                      <div id="lineChart2"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-4">
+                <div className="card">
+                  <div className="card-body pb-0">
+                    <div className="h1 fw-bold float-end text-warning">i</div>
+                    <h2 className="mb-2">Spending Diaries</h2>
+                    <p className="text-muted">where did all my money go?</p>
+                    <div className="pull-in sparkline-fix">
+                      <div id="lineChart3"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
-       
+      </div>
 
     </div>
   )
