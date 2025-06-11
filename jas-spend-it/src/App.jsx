@@ -6,6 +6,7 @@ import '@fontsource/silkscreen'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Navbar from './p.components/navbar'
+import LoggedIn_nav from './p.components/loggedIn_nav'
 import Landing from './components/landing'
 import Signup from './components/signup'
 import About from './components/about'
@@ -16,6 +17,7 @@ import ProtectedRoute from './components/secureRoutes'
 
 function App() {
 
+  {/* wala pa ang code sa loggedin nav */}
   return (
 
     <Router>
