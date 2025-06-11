@@ -76,11 +76,11 @@ useEffect(() => {
       
       <h2>  nu gagawen </h2>
         
-      <div className='container'>
-        <div className="row">
+    <div className='container'>
+      <div className="row">
 <div className="col-md-4">
-       {/* to it a button */}   
-    <Link
+       {/* button */}   
+  <Link
     to="/new-expense"
     style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
   >
@@ -101,7 +101,10 @@ useEffect(() => {
 {/* second */}
 
               <div className="col-md-4">
-    
+  <Link
+    to="/new-expense"
+    style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
+  >
                 <div className="card">
                   <div className="card-body pb-0">
                     <div className="h1 fw-bold float-end text-danger">-3%</div>
@@ -112,12 +115,15 @@ useEffect(() => {
                     </div>
                   </div>
                 </div>
+    </Link>
               </div>
-              <div className="col-md-4">
-    <button
-      onClick={() => navigate('/new-expense')}
-      style={{ all: 'unset', cursor: 'pointer', display: 'block', width: '100%' }}
-    ></button>
+
+
+           <div className="col-md-4">
+  <Link
+    to="/new-expense"
+    style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
+  >
                 <div className="card">
                   <div className="card-body pb-0">
                     <div className="h1 fw-bold float-end text-warning">i</div>
@@ -128,9 +134,11 @@ useEffect(() => {
                     </div>
                   </div>
                 </div>
+    </Link>
               </div>
-        </div>
-      </div>
+    
+        </div> {/* row */}
+      </div>   {/* container */}
 
     </div>
   )

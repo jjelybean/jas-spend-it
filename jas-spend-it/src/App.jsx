@@ -14,6 +14,7 @@ import Sign_in from './components/sign_in'
 import Dashboard from './components/dashboard'
 import New_expense from './components/new_expense'
 import ProtectedRoute from './components/secureRoutes'
+import Budget from './components/budget'
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
           }
         />
          <Route path='/new-expense' element={<New_expense/>}></Route>
+        <Route path="/add-budget" element={<Budget/>}/>
       </Routes>
     </Router>
     
