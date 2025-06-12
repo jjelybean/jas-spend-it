@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 function New_expense() {
+     const navigate = useNavigate();
+
   return (
     <div className='body'>
-    {/* new */}
+  
     <div className='container'>
             <div className="row">
               <div className="col-sm-6 col-md-3">
@@ -91,11 +93,13 @@ function New_expense() {
     <div className='container'>
         <div className="row">
             <div className="col-6">
-              <button type="button" className="btn btn-outline-primary button-style w-100">
-                    <Link to ="/new-budget">
-                    Add budget
-                    </Link>
-              </button>
+                <button
+                  type="button"
+                  className="btn btn-outline-primary button-style w-100"
+                  onClick={() => navigate('/add-budget')}
+                >
+                  Start budgeting
+                </button>
             </div>
             <div className="col-6">
               <button type="button" className="btn btn-outline-primary button-style w-100">
