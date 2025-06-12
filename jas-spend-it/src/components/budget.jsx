@@ -7,6 +7,7 @@ const [userId, setUserId] = useState(null);
 
 const categoryOptions = ['Food', 'Travel', 'Savings', 'Utilities', 'Extra', 'Others'];
 const [customCategory, setCustomCategory] = useState('');
+const [categories, setCategories] = useState([]);
 
 const [selectedCategory, setSelectedCategory] = useState('');
 const [title, setTitle] = useState ('');
@@ -50,8 +51,8 @@ const handleSubmit = async (e) => {
 
 
     const { data, error } = await supabase
-      .from('budgets')
-      .insert([{ title, description: desc, user_id: userId }]);
+      .from('budget')
+      .insert([{ title, desc: desc, user_id: userId, category: finalCategory }]);
 
     if (error) {
       setError(error.message);
@@ -70,8 +71,8 @@ useEffect(() => {
   async function fetchCategories() {
     const { data, error } = await supabase
       .from('budget') 
-      .select('id, name')
-      .order('name', { ascending: true });
+      .select('category')
+      .order('category', { ascending: true });
 
     if (error) {
       console.error('Error fetching categories:', error.message);
@@ -133,19 +134,19 @@ useEffect(() => {
 
                     {/* selection on what the budget is for specifically */}
 
-                    <select
-                      className="form-select form-select-sm"
-                      value={selectedCategory}
-                      onChange={(e) => setSelectedCategory(e.target.value)}
-                      aria-label="Small select example"
-                    >
-                      <option value="">--Select Category--</option>
-                      {categoryOptions.map((cat) => (
-                        <option key={cat.id} value={cat.id}>
-                          {cat.name}
-                        </option>
-                      ))}
-                    </select>
+                  <select
+                    className="form-select form-select-sm"
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    aria-label="Small select example"
+                  >
+                    <option value="">--Select Category--</option>
+                    {categoryOptions.map((cat) => (
+                      <option key={cat} value={cat}>
+                        {cat}
+                      </option>
+                    ))}
+                  </select>
 
                     {/* if other option is selected */}
 
