@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import '@fontsource/space-mono'
 import '@fontsource/silkscreen'
@@ -16,14 +16,34 @@ import New_expense from './components/new_expense'
 import ProtectedRoute from './components/secureRoutes'
 import Budget from './components/budget'
 
+import supabase from './supabaseClient'
+
 function App() {
 
-  {/* wala pa ang code sa loggedin nav */}
+  const [session, setSession] = useState(null);
+
+    useEffect(() => {
+    // Get the initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+
+     const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    // Clean up listener on unmount
+    return () => authListener.subscription.unsubscribe();
+  }, []);
+
+
   return (
 
     <Router>
+      {session ? <LoggedIn_nav user={session.user} /> : <Navbar />}
       <Navbar/>
       <Routes>
+        <Route path="/" element={<Landing />} />
           <Route path="/landing" element={<Landing />} />
          <Route path="/home" element={<Landing/>}/>
          <Route path='/sign-up' element={<Signup/>}></Route>

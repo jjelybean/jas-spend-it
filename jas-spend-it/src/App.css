@@ -4,6 +4,11 @@
   background-color: #FFF8DE;
 }
 
+.body p{
+  text-align: center;
+  font-family: space-mono;
+}
+
 .introText h2{
   font-family: silkscreen;
   color: #F0BB78;

@@ -87,7 +87,7 @@ useEffect(() => {
           {/* CARD */}
         <div className="card">
               <div className="card-body pb-0">
-                <div className="h1 fw-bold float-end text-primary">+5%</div>
+                <div className="h1 fw-bold float-end text-primary">+5%</div> {/* change to icon */}
                   <h2 className="mb-2">Log</h2>
                     <p className="text-muted">Set budget. spend wisely</p>
                     <div className="pull-in sparkline-fix">
@@ -107,7 +107,7 @@ useEffect(() => {
   >
                 <div className="card">
                   <div className="card-body pb-0">
-                    <div className="h1 fw-bold float-end text-danger">-3%</div>
+                    <div className="h1 fw-bold float-end text-danger">-3%</div> {/* change to icon */}
                     <h2 className="mb-2">Start a new goal!</h2>
                     <p className="text-muted">Okay. I promise i'll start saving</p>
                     <div className="pull-in sparkline-fix">

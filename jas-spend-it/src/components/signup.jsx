@@ -3,6 +3,7 @@ import "../styles/forms.css"
 import supabase from '../supabaseClient';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import "../styles/forms.css"
 
 
 export default function Signup() {
@@ -132,9 +133,8 @@ export default function Signup() {
             onChange={handleChange}
           />
         </div>
+          <button className="btn btn-success form-button" type="submit">Sign-up'</button>
     </div>
-        <button className="btn btn-primary" type="submit">Sign Up</button>
-
         <p className="mt-2 text-info">{status}</p>
 
   </form> {/* heheh */}

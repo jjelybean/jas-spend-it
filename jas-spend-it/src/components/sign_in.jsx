@@ -6,7 +6,8 @@ import supabase from '../supabaseClient';
 function Sign_in() {
 
   const [formData, setFormData] = useState({emailOrUsername:"", password:""});
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState(null);
+
 
   const navigate = useNavigate();
 
@@ -36,9 +37,13 @@ function Sign_in() {
         .single();
 
       if (error || !data) {
-        setStatus("Username not found.");
-        return;
-      }
+      setStatus(
+        <>
+          Account not found. <a href="/sign-up" className="text-primary">Create an account</a>.
+        </>
+      );
+      return;
+    }
 
       emailToUse = data.email;
     }
@@ -95,6 +100,14 @@ function Sign_in() {
       </div>
            
     </form>
+
+    {/* display error message */}
+    {status && (
+      <div className="alert alert-warning mt-2" role="alert">
+        {status}
+      </div>
+    )}
+
 
 
     </div>
