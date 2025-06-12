@@ -12,6 +12,10 @@ const [categories, setCategories] = useState([]);
 const [selectedCategory, setSelectedCategory] = useState('');
 const [title, setTitle] = useState ('');
 const [desc, setDesc] = useState ('');
+const [amount, setAmount] = useState ('');
+const [start_date, setStartDate] = useState('');
+const [end_date, setEndDate] = useState('');
+
 
 const [error, setError] = useState(null);
 const [success, setSuccess] = useState(false); 
@@ -52,7 +56,11 @@ const handleSubmit = async (e) => {
 
     const { data, error } = await supabase
       .from('budget')
-      .insert([{ title, desc: desc, user_id: userId, category: finalCategory }]);
+      .insert([{ title, desc: desc, 
+        user_id: userId, 
+        category: finalCategory,
+        amount,
+       }]);
 
     if (error) {
       setError(error.message);
@@ -62,6 +70,7 @@ const handleSubmit = async (e) => {
       setDesc('');
       setCustomCategory('');
       setSelectedCategory('');
+      setAmount('');
     }
   };
 
@@ -164,6 +173,53 @@ useEffect(() => {
                       />
                     </div>
                     )}
+
+                  {/* to enter amount */}
+
+                <div className="input-group input-group-sm mb-3">
+                  <span className="input-group-text" id="inputGroup-sizing-sm">Amount</span>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="amount" 
+                        placeholder="Enter amount"
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value)}
+                        required
+                      />
+                        <small id="amountText" className="form-text text-muted">
+                        How much will you allocate for this category?
+                      </small>
+                </div>
+
+                {/* for start and end date */}
+
+
+                <div className="input-group input-group-sm mb-3">
+                  <span className="input-group-text" id="inputGroup-sizing-sm">Date</span>
+                     <input
+                        type="date"
+                        className="form-control"
+                        id="start_date" 
+                        placeholder=""
+                        value={start_date}
+                        onChange={(e) => setStartDate(e.target.value)}
+                        required // required ba tlga
+                      />
+                </div>
+
+                <div className="input-group input-group-sm mb-3">
+                  <span className="input-group-text" id="inputGroup-sizing-sm">End date of budget</span>
+                     <input
+                        type="date"
+                        className="form-control"
+                        id="end_date" 
+                        placeholder=""
+                        value={end_date}
+                        onChange={(e) => setEndDate(e.target.value)}
+                        required // required ba tlga
+                      />
+                </div>
 
                 <button type="submit" className="btn btn-dark">Add</button>
 
