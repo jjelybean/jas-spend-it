@@ -15,6 +15,7 @@ import Dashboard from './components/dashboard'
 import New_expense from './components/new_expense'
 import ProtectedRoute from './components/secureRoutes'
 import Budget from './components/budget'
+import Goals from './components/goals'
 
 import supabase from './supabaseClient'
 
@@ -59,6 +60,7 @@ function App() {
         />
          <Route path='/new-expense' element={<New_expense/>}></Route>
         <Route path="/add-budget" element={<Budget/>}/>
+         <Route path='/goals' element={<Goals/>}></Route>
       </Routes>
     </Router>
     

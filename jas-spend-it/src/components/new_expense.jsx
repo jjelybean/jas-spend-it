@@ -21,7 +21,7 @@ function New_expense() {
                       </div>
                       <div className="col-7 col-stats">
                         <div className="numbers">
-                          <p className="card-category">Number</p>
+                          <p className="card-category">Current balance</p>
                           <h4 className="card-title">150GB</h4>
                         </div>
                       </div>
@@ -40,7 +40,7 @@ function New_expense() {
                       </div>
                       <div className="col-7 col-stats">
                         <div className="numbers">
-                          <p className="card-category">Revenue</p>
+                          <p className="card-category">Total Spent</p>
                           <h4 className="card-title">$ 1,345</h4>
                         </div>
                       </div>
@@ -48,44 +48,7 @@ function New_expense() {
                   </div>
                 </div>
               </div>
-              <div className="col-sm-6 col-md-3">
-                <div className="card card-stats card-round">
-                  <div className="card-body">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="icon-big text-center">
-                          <i className="icon-close text-danger"></i>
-                        </div>
-                      </div>
-                      <div className="col-7 col-stats">
-                        <div className="numbers">
-                          <p className="card-category">Errors</p>
-                          <h4 className="card-title">23</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3">
-                <div className="card card-stats card-round">
-                  <div className="card-body">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="icon-big text-center">
-                          <i className="icon-social-twitter text-primary"></i>
-                        </div>
-                      </div>
-                      <div className="col-7 col-stats">
-                        <div className="numbers">
-                          <p className="card-category">Followers</p>
-                          <h4 className="card-title">+45K</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             
             </div>
       </div> 
 
