@@ -9,12 +9,17 @@
   font-family: space-mono;
 }
 
+.body h2{
+  text-align: center;
+}
+
 .introText h2{
   font-family: silkscreen;
   color: #F0BB78;
   margin-left: 50px;
   padding-top: 110px;
   font-size: 70px;
+  text-align: center;
 
 }
 

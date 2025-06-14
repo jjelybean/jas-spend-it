@@ -5,11 +5,21 @@ import { useNavigate } from 'react-router-dom';
 import supabase from '../supabaseClient';
 import { Link } from 'react-router-dom';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function Dashboard() {
 
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
+  // AOS
+
+    useEffect(() => {
+      AOS.init();
+    }, [])
+
 
 useEffect(() => {
     const checkAuth = async () => {
