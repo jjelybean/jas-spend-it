@@ -23,13 +23,14 @@ function App() {
 
   const [session, setSession] = useState(null);
 
-    useEffect(() => {
+  useEffect(() => {
     // Get the initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
     });
 
-     const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+    // Listen to session changes (login, logout)
+    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });
 
@@ -37,20 +38,22 @@ function App() {
     return () => authListener.subscription.unsubscribe();
   }, []);
 
-
   return (
-
     <Router>
+      {/* Show different navbar depending on login state */}
       {session ? <LoggedIn_nav user={session.user} /> : <Navbar />}
-      <Navbar/>
+
       <Routes>
         <Route path="/" element={<Landing />} />
-          <Route path="/landing" element={<Landing />} />
-         <Route path="/home" element={<Landing/>}/>
-         <Route path='/sign-up' element={<Signup/>}></Route>
-         <Route path='/about' element={<About/>}></Route>
-         <Route path='/sign-in' element={<Sign_in/>}></Route>
-          <Route
+        <Route path="/landing" element={<Landing />} />
+        <Route path="/home" element={<Landing />} />
+        <Route path="/sign-up" element={<Signup />} />
+        <Route path="/about" element={<About />} />
+
+    
+        <Route path="/sign-in" element={<Sign_in />} />
+
+        <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
@@ -58,12 +61,12 @@ function App() {
             </ProtectedRoute>
           }
         />
-         <Route path='/new-expense' element={<New_expense/>}></Route>
-        <Route path="/add-budget" element={<Budget/>}/>
-         <Route path='/goals' element={<Goals/>}></Route>
+
+        <Route path="/new-expense" element={<New_expense />} />
+        <Route path="/add-budget" element={<Budget />} />
+        <Route path="/goals" element={<Goals />} />
       </Routes>
     </Router>
-    
   )
 }
 

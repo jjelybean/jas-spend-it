@@ -137,7 +137,7 @@ function Landing() {
 
           <div className="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-            <a href="#" className="read-more"><span>Read More</span><i className="bi bi-arrow-right"></i></a>
+            <button type="button" className="btn btn-primary">Primary</button>
           </div> {/* col */}
         </div> {/* row */}
     </div>  {/* container */}
