@@ -22,7 +22,8 @@ import Dashboard from './components/dashboard'
 import New_expense from './components/new_expense'
 import ProtectedRoute from './components/secureRoutes'
 import Budget from './components/budget'
-import Goals from './components/goals'
+import Goals from './components/goals/goals'
+import Set_goal from './components/goals/set_goal';
 
 import supabase from './supabaseClient'
 
@@ -72,9 +73,10 @@ function App() {
         <Route path="/new-expense" element={<New_expense />} />
         <Route path="/add-budget" element={<Budget />} />
         <Route path="/goals" element={<Goals />} />
+        <Route path="/set-goal" element={<Set_goal/>} />
       </Routes>
     </Router>
   )
 }
 
-export default App
+export default App;
