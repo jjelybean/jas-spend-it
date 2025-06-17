@@ -1,10 +1,17 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+
+//fonts
 import '@fontsource/space-mono'
 import '@fontsource/silkscreen'
 
+// icon
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
+// components
 import Navbar from './p.components/navbar'
 import LoggedIn_nav from './p.components/loggedIn_nav'
 import Landing from './components/landing'

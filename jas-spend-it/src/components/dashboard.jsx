@@ -45,13 +45,9 @@ useEffect(() => {
   };
 
   return (
-    <div className='body'>
+<div className='body'>
 
       <h1>Welcome to Jas spend it</h1>
-
-     <button onClick={handleLogout} className="btn btn-danger">
-          Logout
-        </button>
 
 
       {/* for username na popup */}
@@ -60,7 +56,8 @@ useEffect(() => {
       )}
 
       {/* pending goals -- podcast API */}  
-
+  
+  <section className='body py-3'>
     <div className='container'>
       <div className="row">
         <div className="col-sm-6 mb-3 mb-sm-0">
@@ -82,75 +79,80 @@ useEffect(() => {
           </div>
         </div>
       </div>
-    </div>         
-      
-      <h2>  nu gagawen </h2>
+    </div>    
+  </section>     
+
+  <section className='body'> 
+      <h2>  nu gagawen </h2> {/*add style later*/}
         
     <div className='container'>
       <div className="row">
-<div className="col-md-4">
-       {/* button */}   
-  <Link
-    to="/new-expense"
-    style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
-  >
-          {/* CARD */}
-        <div className="card">
-              <div className="card-body pb-0">
-                <div className="h1 fw-bold float-end text-primary">+5%</div> {/* change to icon */}
-                  <h2 className="mb-2">Log</h2>
-                    <p className="text-muted">Set budget. spend wisely</p>
-                    <div className="pull-in sparkline-fix">
-                      <div id="lineChart"></div>
-                    </div>
-                  </div>
-                </div>
-      </Link>
-</div>
+        <div className="col-4">
+              {/* button */}   
+          <Link
+            to="/new-expense"
+            style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
+          >
+                  {/* CARD */}
+                <div className="card">
+                      <div className="card-body pb-0">
+                         <i className="fa-solid fa-wallet fa-2x custom-icon"></i> {/* icon*/}
+                          <h2 className="mb-2">Log</h2>
+                            <p className="text-muted">Set budget. spend wisely</p>
+                            <div className="pull-in sparkline-fix">
+                              <div id="lineChart"></div>
+                            </div>
+                          </div>
+                        </div>
+              </Link>
+        </div>
 
 {/* second */}
 
-              <div className="col-md-4">
-  <Link
-    to="/goals"
-    style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
-  >
-                <div className="card">
-                  <div className="card-body pb-0">
-                    <div className="h1 fw-bold float-end text-danger">-3%</div> {/* change to icon */}
-                    <h2 className="mb-2">Start a new goal!</h2>
-                    <p className="text-muted">Okay. I promise i'll start saving</p>
-                    <div className="pull-in sparkline-fix">
-                      <div id="lineChart2"></div>
-                    </div>
-                  </div>
-                </div>
-    </Link>
-              </div>
+        <div className="col-4">
+          <Link
+            to="/goals"
+            style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
+          >
+                        <div className="card">
+                          <div className="card-body pb-0">
+                             <i className="fa-solid fa-medal fa-2x custom-icon"></i> {/* icon */}
+                            <h2 className="mb-2">Start a new goal!</h2>
+                            <p className="text-muted">Okay. I promise i'll start saving</p>
+                            <div className="pull-in sparkline-fix">
+                              <div id="lineChart2"></div>
+                            </div>
+                          </div>
+                        </div>
+            </Link>
+        </div>
 
+{/* third -- diary */}
 
-           <div className="col-md-4">
-  <Link
-    to="/new-expense"
-    style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
-  >
-                <div className="card">
-                  <div className="card-body pb-0">
-                    <div className="h1 fw-bold float-end text-warning">i</div>
-                    <h2 className="mb-2">Spending Diaries</h2>
-                    <p className="text-muted">where did all my money go?</p>
-                    <div className="pull-in sparkline-fix">
-                      <div id="lineChart3"></div>
-                    </div>
-                  </div>
-                </div>
-    </Link>
-              </div>
+        <div className="col-4">
+          <Link
+            to="/new-expense"
+            style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
+          >
+                        <div className="card">
+                          <div className="card-body pb-0"> 
+                             <i className="fa-solid fa-book fa-2x custom-icon"></i> {/* icon */}
+                            <div className="h1 fw-bold float-end text-warning">i</div>
+                            <h2 className="mb-2">Spending Diaries</h2>
+                            <p className="text-muted">where did all my money go?</p>
+                            <div className="pull-in sparkline-fix">
+                              <div id="lineChart3"></div>
+                            </div>
+                          </div>
+                        </div>
+            </Link>
+        </div>
     
         </div> {/* row */}
-      </div>   {/* container */}
+     </div>   {/* container */}
+  </section>  
 
-    </div>
+</div> //body 
   )
 }
 

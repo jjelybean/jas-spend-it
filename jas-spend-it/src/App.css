@@ -27,6 +27,17 @@
 
 }
 
+.body h4{
+  text-align: center;
+}
+
+.custom-icon{
+  margin-left: 150px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  
+}
+
 .formText {
   text-align: center;
 }
