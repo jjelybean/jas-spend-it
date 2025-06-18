@@ -1,3 +1,4 @@
+// dashboard when upon user log-in 
 import React, { useState, useEffect } from 'react'
 import Popup from './popup'
 import '../components/styles/dashboard.css'

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function Goals() {
   return (
@@ -7,8 +8,16 @@ function Goals() {
       {/* SET NEW GOAL, VIEW GOALS STATS, VIEW BADGES (accomplish how many goals*/}
 
             <h3 className="fw-bold mb-3">GOALS</h3>
+
+            {/* setting new goal */}
             <div className="row">
               <div className="col-sm-6 col-md-3">
+                
+              <Link
+                      to="/set-goals"
+                      style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
+              >
+ 
                 <div className="card card-stats card-primary card-round">
                   <div className="card-body">
                     <div className="row">
@@ -25,7 +34,10 @@ function Goals() {
                     </div>
                   </div>
                 </div>
+                
+              </Link>
               </div>
+
               <div className="col-sm-6 col-md-3">
                 <div className="card card-stats card-info card-round">
                   <div className="card-body">

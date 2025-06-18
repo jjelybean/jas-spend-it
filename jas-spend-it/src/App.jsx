@@ -73,7 +73,7 @@ function App() {
         <Route path="/new-expense" element={<New_expense />} />
         <Route path="/add-budget" element={<Budget />} />
         <Route path="/goals" element={<Goals />} />
-        <Route path="/set-goal" element={<Set_goal/>} />
+        <Route path="/set-goals" element={<Set_goal/>} />
       </Routes>
     </Router>
   )
