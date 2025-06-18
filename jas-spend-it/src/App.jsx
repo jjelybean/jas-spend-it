@@ -24,6 +24,7 @@ import ProtectedRoute from './components/secureRoutes'
 import Budget from './components/budget'
 import Goals from './components/goals/goals'
 import Set_goal from './components/goals/set_goal';
+import My_goals from './components/goals/my_goals';
 
 import supabase from './supabaseClient'
 
@@ -74,6 +75,7 @@ function App() {
         <Route path="/add-budget" element={<Budget />} />
         <Route path="/goals" element={<Goals />} />
         <Route path="/set-goals" element={<Set_goal/>} />
+        <Route path="/my-goals" element={<My_goals/>} />
       </Routes>
     </Router>
   )

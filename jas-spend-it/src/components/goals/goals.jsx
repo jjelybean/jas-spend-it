@@ -37,8 +37,12 @@ function Goals() {
                 
               </Link>
               </div>
-
+                        {/* VIEWING AND DELETING OF GOALS */}
               <div className="col-sm-6 col-md-3">
+              <Link
+                      to="/my-goals"
+                      style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
+              >
                 <div className="card card-stats card-info card-round">
                   <div className="card-body">
                     <div className="row">
@@ -49,13 +53,16 @@ function Goals() {
                       </div>
                       <div className="col-7 col-stats">
                         <div className="numbers"> {/* insert icon here later */}
-                          <p className="card-category">View Stats</p>
+                          <p className="card-category">My Goals</p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </Link>
               </div>
+
+              {/*insert view stats button later*/}
               <div className="col-sm-6 col-md-3">
                 <div className="card card-stats card-success card-round">
                   <div className="card-body">
