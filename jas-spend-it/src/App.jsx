@@ -25,6 +25,7 @@ import Budget from './components/budget'
 import Goals from './components/goals/goals'
 import Set_goal from './components/goals/set_goal';
 import My_goals from './components/goals/my_goals';
+import Add_progress from './components/goals/add_progress';
 
 import supabase from './supabaseClient'
 
@@ -76,6 +77,7 @@ function App() {
         <Route path="/goals" element={<Goals />} />
         <Route path="/set-goals" element={<Set_goal/>} />
         <Route path="/my-goals" element={<My_goals/>} />
+        <Route path="/add-progress/:id" element={<Add_progress/>} />
       </Routes>
     </Router>
   )

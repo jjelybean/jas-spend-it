@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import supabase from '../../supabaseClient';
+import { Link } from 'react-router-dom';
 
 function My_goals() {
 
@@ -28,7 +29,7 @@ function My_goals() {
       // Fetch info from the database
       const { data: goalsData, error: goalsError } = await supabase
         .from('goals')
-        .select('purpose, target_amount')
+        .select('id, purpose, target_amount')
         .eq('user_id', user.id);
 
       if (goalsError) {
@@ -42,6 +43,8 @@ function My_goals() {
     fetchUserAndGoals();
   }, []);
 
+
+
   return (
     <div className='body'>
 
@@ -54,15 +57,20 @@ function My_goals() {
       <div className="row">
       {goals.map((goal, index) => (
         <div className="col-sm-6 mb-3 mb-sm-0" key={index}>
+            <Link
+                      to={`/add-progress/${goal.id}`}
+                      style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
+              >
           <div className="card shadow-sm">
-            <div className="card-body">
-              <h5 className="card-title">{goal.purpose}</h5>
-              <p className="card-text">₱{goal.target_amount}</p>
-              {/* make this clickable */}
-            </div>
+              <div className="card-body">
+                <h5 className="card-title">{goal.purpose}</h5>
+                <p className="card-text">₱{goal.target_amount}</p>
+                {/* make this clickable */}
+              </div>
           </div>
-        </div>
-      ))}
+          </Link>
+        </div> // col div
+      ))} 
     </div>
       )}
       </div> {/*row*/}
