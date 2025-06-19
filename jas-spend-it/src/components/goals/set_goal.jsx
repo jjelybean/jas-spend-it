@@ -10,6 +10,9 @@ function Set_goal() {
 
   const [target_amount, setTargetAmount] = useState('');
   const [purpose, setPurpose] = useState ('');
+  const[notes, setNotes] = useState('');
+  const[target_date, setTargetDate] = useState('');
+
   
   const [error, setError] = useState(null);
 
@@ -41,7 +44,10 @@ function Set_goal() {
       .insert([
         { user_id: userId,
           purpose: purpose,
-        target_amount: parseFloat(target_amount)}
+          target_amount: parseFloat(target_amount),
+          target_date: target_date,
+          notes: notes
+      }
       ]);
 
        if (error) {
@@ -52,6 +58,8 @@ function Set_goal() {
           // reset the form
           setPurpose('');
           setTargetAmount('');
+          setTargetDate('');
+          setNotes('');
         }
 
       
@@ -94,10 +102,35 @@ function Set_goal() {
                 </small>
           </div>
 
+           {/* TARGET DATE --- NOTES  */}
+
+          
+          <div className="input-group input-group-sm mb-3">
+            <span className="input-group-text" id="inputGroup-sizing-sm">Target Date</span>
+                <input
+                  type="date"
+                  className="form-control"
+                  id="target_date" 
+                  placeholder="(optional)" // add more text maybe
+                  value={target_date}
+                  onChange={(e) => setTargetDate(e.target.value)} 
+                />
+          </div> 
+
+          <span className="input-group-text">Purpose</span>
+          <textarea className="form-control" aria-label="With textarea"
+          placeholder='Enter goal title/purpose'
+          value={notes}
+          onChange={(e)=> setNotes(e.target.value)}
+          required
+          ></textarea>
+
             <button type="submit" className="btn btn-dark">Add Goal</button>
       </div>
 
     </form>
+
+   {/* add back button here */}
     </div>   {/* container */}
 
 
