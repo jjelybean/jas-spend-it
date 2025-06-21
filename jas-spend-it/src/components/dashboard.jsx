@@ -132,7 +132,7 @@ useEffect(() => {
 
         <div className="col-4">
           <Link
-            to="/new-expense"
+            to="/journal-entries"
             style={{ textDecoration: 'none', display: 'block', color: 'inherit' }}
           >
                         <div className="card">

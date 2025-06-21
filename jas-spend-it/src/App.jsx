@@ -8,6 +8,9 @@ import '@fontsource/silkscreen'
 // icon
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+// bootstrap
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -26,6 +29,7 @@ import Goals from './components/goals/goals'
 import Set_goal from './components/goals/set_goal';
 import My_goals from './components/goals/my_goals';
 import Add_progress from './components/goals/add_progress';
+import My_journal from './components/journal/my_journal';
 
 import supabase from './supabaseClient'
 
@@ -78,6 +82,7 @@ function App() {
         <Route path="/set-goals" element={<Set_goal/>} />
         <Route path="/my-goals" element={<My_goals/>} />
         <Route path="/add-progress/:id" element={<Add_progress/>} />
+         <Route path="/journal-entries" element={<My_journal/>} />
       </Routes>
     </Router>
   )
